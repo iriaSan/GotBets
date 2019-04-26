@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "218119798155",
+    "firebase_url": "https://gotbets-4a116.firebaseio.com",
+    "project_id": "gotbets-4a116",
+    "storage_bucket": "gotbets-4a116.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218119798155:android:9eb9c7f0a0936f18",
+        "android_client_info": {
+          "package_name": "com.iriasan.gotbets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "218119798155-o63kodgcqg716pt2s279un04i34qfljk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7ra4pqNnS7HQY8R65jEXtt4POwCzvFX0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "218119798155-o63kodgcqg716pt2s279un04i34qfljk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
