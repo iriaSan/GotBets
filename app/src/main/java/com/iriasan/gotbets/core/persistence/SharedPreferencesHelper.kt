@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.iriasan.gotbets.AndroidApplication
+import com.iriasan.gotbets.features.domain.models.UserModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -45,17 +46,17 @@ class SharedPreferencesHelper {
         return keys?.get(key)
     }
 
-//    fun loadUserModel(key: String): Any? {
-//        return try {
-//            sharedPreferences =
-//                    AndroidApplication().getContext()
-//                        ?.getSharedPreferences(SHARED_PREFERENCE_FILE, Context.MODE_PRIVATE)
-//            val keys = sharedPreferences?.all
-//            Gson().fromJson(keys?.get(key).toString(), UserModel::class.java)
-//        } catch (e: Exception) {
-//            null
-//        }
-//    }
+    fun loadUserModel(key: String): Any? {
+        return try {
+            sharedPreferences =
+                    AndroidApplication().getContext()
+                        ?.getSharedPreferences(SHARED_PREFERENCE_FILE, Context.MODE_PRIVATE)
+            val keys = sharedPreferences?.all
+            Gson().fromJson(keys?.get(key).toString(), UserModel::class.java)
+        } catch (e: Exception) {
+            null
+        }
+    }
 
     fun loadDeviceId(): String? {
         val deviceId: String? = load(key = KEY_DEVICE_ID) as? String

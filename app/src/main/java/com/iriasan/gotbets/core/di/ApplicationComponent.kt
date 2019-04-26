@@ -5,6 +5,7 @@ import com.iriasan.gotbets.BaseActivity
 import com.iriasan.gotbets.BaseFragment
 import com.iriasan.gotbets.core.di.viewmodel.ViewModelModule
 import com.iriasan.gotbets.core.navigation.RouteActivity
+import com.iriasan.gotbets.features.presentation.*
 import dagger.Component
 import javax.inject.Singleton
 
@@ -15,10 +16,10 @@ interface ApplicationComponent {
     fun inject(baseActivity: BaseActivity)
     fun inject(baseFragment: BaseFragment)
     fun inject(routeActivity: RouteActivity)
-//    fun inject(splashActivity: SplashActivity)
-//    fun inject(splashFragment: SplashFragment)
-//    fun inject(loginActivity: LoginActivity)
-//    fun inject(loginFragment: LoginFragment)
-//    fun inject(mainActivity: MainActivity)
-//    fun inject(mainFragment: MainFragment)
+    fun inject(splashActivity: SplashActivity)
+    fun inject(splashFragment: SplashFragment)
+    fun inject(loginActivity: LoginActivity)
+    fun inject(loginFragment: LoginFragment)
+    fun inject(mainActivity: MainActivity)
+    fun inject(mainFragment: MainFragment)
 }
