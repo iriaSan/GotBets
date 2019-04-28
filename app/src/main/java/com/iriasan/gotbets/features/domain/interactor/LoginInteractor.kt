@@ -8,7 +8,7 @@ import com.iriasan.gotbets.features.data.repository.LoginRepository
 import javax.inject.Inject
 
 class LoginInteractor
-@Inject constructor(private val loginRepository: LoginRepository) : UseCase<UserModel, LoginInteractor.Params>() {
+@Inject constructor(private val loginRepository: LoginRepository) : UseCase<Boolean, LoginInteractor.Params>() {
 
     override suspend fun run(params: Params) = loginRepository.login(params.loginModelPost)
 

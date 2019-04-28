@@ -1,6 +1,7 @@
 package com.iriasan.gotbets.features.data.repository
 
 
+import com.google.firebase.auth.FirebaseAuth
 import com.iriasan.gotbets.core.exception.Failure
 import com.iriasan.gotbets.core.functional.Either
 import com.iriasan.gotbets.core.platform.NetworkHandler
@@ -13,45 +14,34 @@ import retrofit2.Call
 import javax.inject.Inject
 
 interface LoginRepository {
-    fun login(loginModelPost: LoginModelPost?): Either<Failure, UserModel>
-    class Login
-    @Inject constructor(private val networkHandler: NetworkHandler, private val service: LoginService) :
-        LoginRepository {
-        @Inject
-        lateinit var userManager: UserManager
+    fun login(loginModelPost: LoginModelPost?): Either<Failure, Boolean>
 
-        override fun login(loginModelPost: LoginModelPost?): Either<Failure, UserModel> {
+    class Login
+    @Inject constructor(private val networkHandler: NetworkHandler) : LoginRepository {
+        override fun login(loginModelPost: LoginModelPost?): Either<Failure, Boolean> {
             return when (networkHandler.isConnected) {
-                true -> request(service.login(loginModelPost)!!, { it -> it }, UserModel())
+                true -> request(loginModelPost)
                 false -> Either.Left(Failure.NetworkConnection)
             }
         }
 
-
-        private fun <T, R> request(call: Call<T>, transform: (T) -> R, default: T): Either<Failure, R> {
+        private fun request(loginModelPost: LoginModelPost?): Either<Failure, Boolean> {
             return try {
-                val response = call.execute()
-                when (response.isSuccessful) {
-                    true -> {
-                        val responseTransformed = transform((response.body() ?: default))
-                        if (responseTransformed is UserModel) {
-                            userManager.saveUserModel(responseTransformed)
-                        }
-                        Either.Right(transform((response.body() ?: default)))
+                val response = loginModelPost?.email?.let {itEmail->
+                    loginModelPost.password?.let {itPassword->
+                        FirebaseAuth.getInstance()
+                            .signInWithEmailAndPassword(itEmail, itPassword)
                     }
-                    false -> {
-                        if (response.code() == 401) {
-                            Either.Left(Failure.Unauthorized)
-                        } else {
-                            Either.Left(Failure.ServerError)
-                        }
+                }
+                response?.addOnCompleteListener { }.let { itResponse ->
+                    when {
+                        itResponse?.isSuccessful!! -> Either.Right(true)
+                        else -> Either.Left(Failure.Unauthorized)
                     }
                 }
             } catch (e: Throwable) {
                 Either.Left(Failure.ServerError)
             }
         }
-
-
     }
 }

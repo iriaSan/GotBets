@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "427292240015",
+    "firebase_url": "https://gotbets-81ac9.firebaseio.com",
+    "project_id": "gotbets-81ac9",
+    "storage_bucket": "gotbets-81ac9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427292240015:android:9eb9c7f0a0936f18",
+        "android_client_info": {
+          "package_name": "com.iriasan.gotbets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427292240015-kejl0rumbkeduja16gqd47d860ksbbc7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iriasan.gotbets",
+            "certificate_hash": "ecb441f1463539e5cb032ff4bccb71e5f34e1bfa"
+          }
+        },
+        {
+          "client_id": "427292240015-dq21tg8n7knvrti3o0b67777gc9caft0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNn0ZLIgElwU3HUiPvDhD2gyEA71FedME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427292240015-dq21tg8n7knvrti3o0b67777gc9caft0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
