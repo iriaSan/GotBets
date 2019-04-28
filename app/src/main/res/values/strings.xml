@@ -1,5 +1,8 @@
 <resources>
 
     <string name="app_name_splash">Got Bets</string>
+
+    <!-- Session -->
     <string name="have_an_account_signup">¿No tienes Cuenta? Regístrate</string>
+    <string name="signup">Registrate</string>
 </resources>
