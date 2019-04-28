@@ -1,4 +1,4 @@
-package com.iriasan.gotbets.features.presentation
+package com.iriasan.gotbets.features.presentation.login
 
 import androidx.lifecycle.MutableLiveData
 import com.iriasan.gotbets.core.exception.Failure
@@ -19,20 +19,20 @@ class LoginViewModel @Inject constructor(private val loginInteractor: LoginInter
     fun login(loginModelPost: LoginModelPost) {
         when {
             loginModelPost.email.isNullOrBlank() && loginModelPost.password.isNullOrBlank() -> {
-                handleFailure(Failure.EmptyField(ERRORTYPES.EMAIL))
-                handleFailure(Failure.EmptyField(ERRORTYPES.PASSWORD))
+                handleFailure(Failure.EmptyField(Companion.ERRORTYPES.EMAIL))
+                handleFailure(Failure.EmptyField(Companion.ERRORTYPES.PASSWORD))
             }
 
             loginModelPost.email.isNullOrBlank() -> {
-                handleFailure(Failure.EmptyField(ERRORTYPES.EMAIL))
+                handleFailure(Failure.EmptyField(Companion.ERRORTYPES.EMAIL))
             }
 
             !loginModelPost.email?.isEmailValid()!! -> {
-                handleFailure(Failure.EmptyField(ERRORTYPES.WRONG_EMAIL))
+                handleFailure(Failure.EmptyField(Companion.ERRORTYPES.WRONG_EMAIL))
             }
 
             loginModelPost.password.isNullOrBlank() -> {
-                handleFailure(Failure.EmptyField(ERRORTYPES.PASSWORD))
+                handleFailure(Failure.EmptyField(Companion.ERRORTYPES.PASSWORD))
             }
 
             else -> {
