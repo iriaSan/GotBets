@@ -8,6 +8,6 @@ class Authenticator
 @Inject constructor() {
     fun userLoggedIn(): Boolean {
         //here logic to check user logged
-        return true
+        return false
     }
 }

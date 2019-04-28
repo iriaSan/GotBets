@@ -12,7 +12,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".features.presentation.MainActivity"
+        <activity android:name=".core.navigation.RouteActivity"
                   android:noHistory="true"
                   android:theme="@style/AppTheme.Translucent">
             <intent-filter>
@@ -21,8 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".core.navigation.RouteActivity"/>
-        <activity android:name=".features.presentation.LoginActivity"
+        <activity android:name=".features.presentation.MainActivity"/>
+        <activity android:name=".features.presentation.login.LoginActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:launchMode="singleInstance"
                   android:screenOrientation="portrait"

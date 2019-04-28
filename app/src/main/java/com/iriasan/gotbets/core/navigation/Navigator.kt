@@ -5,7 +5,7 @@ import android.view.View
 import com.iriasan.gotbets.features.presentation.MainActivity
 import com.iriasan.gotbets.core.security.AuthManager
 import com.iriasan.gotbets.core.security.Authenticator
-import com.iriasan.gotbets.features.presentation.LoginActivity
+import com.iriasan.gotbets.features.presentation.login.LoginActivity
 import com.iriasan.gotbets.features.presentation.SplashActivity
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -24,10 +24,7 @@ class Navigator
     private fun showSplash(context: Context) = context.startActivity(SplashActivity.callingIntent(context))
 
     fun showLogin(context: Context) {
-        when (authenticator?.userLoggedIn()) {
-            true -> context.startActivity(LoginActivity.callingIntent(context))
-            false -> AuthManager().authExpiredAndGoLogin(context)
-        }
+        context.startActivity(LoginActivity.callingIntent(context))
     }
 
     fun showMain(context: Context) {
