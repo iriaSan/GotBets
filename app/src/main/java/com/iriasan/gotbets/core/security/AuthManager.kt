@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.app.ActivityCompat.finishAffinity
 import com.iriasan.gotbets.core.persistence.SharedPreferencesHelper
-import com.iriasan.gotbets.features.presentation.SplashActivity
+import com.iriasan.gotbets.features.presentation.splash.SplashActivity
 import org.jetbrains.anko.doAsync
 
 class AuthManager {

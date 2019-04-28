@@ -9,6 +9,8 @@ import com.iriasan.gotbets.features.presentation.*
 import com.iriasan.gotbets.features.presentation.login.LoginActivity
 import com.iriasan.gotbets.features.presentation.login.LoginFragment
 import com.iriasan.gotbets.features.presentation.signup.SignupFragment
+import com.iriasan.gotbets.features.presentation.splash.SplashActivity
+import com.iriasan.gotbets.features.presentation.splash.SplashFragment
 import dagger.Component
 import javax.inject.Singleton
 

@@ -5,4 +5,25 @@
     <!-- Session -->
     <string name="have_an_account_signup">¿No tienes Cuenta? Regístrate</string>
     <string name="signup">Registrate</string>
+
+
+    <!-- Characters -->
+    <string name="name_cersei">CERSEI</string>
+    <string name="name_jaime">JAIME</string>
+    <string name="name_tyrion">TYRION</string>
+    <string name="name_daenerys">DAENERYS</string>
+    <string name="name_jon">JON</string>
+    <string name="name_arya">ARYA</string>
+    <string name="name_sansa">SANSA</string>
+    <string name="name_bran">BRAN</string>
+    <string name="name_gendry">GENDRY</string>
+    <string name="name_samwell">SAMWELL</string>
+    <string name="name_jorah">JORAH</string>
+    <string name="name_the_dog">EL PERRO</string>
+    <string name="name_the_mountain">LA MONTAÑA</string>
+    <string name="name_brienne">BRIENNE</string>
+    <string name="name_theon">THEON</string>
+    <string name="name_varys">VARYS</string>
+
+
 </resources>

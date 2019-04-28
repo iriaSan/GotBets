@@ -45,7 +45,7 @@ class LoginFragment : BaseFragment(){
     private fun renderDone(done: Boolean?) {
         hideProgress()
         if (done!!) {
-            navigator.showMain(requireContext())
+            navigator.showBet(requireContext())
             activity?.finishAndRemoveTask()
         }
     }

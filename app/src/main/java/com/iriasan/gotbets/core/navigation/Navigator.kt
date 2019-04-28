@@ -5,8 +5,9 @@ import android.view.View
 import com.iriasan.gotbets.features.presentation.MainActivity
 import com.iriasan.gotbets.core.security.AuthManager
 import com.iriasan.gotbets.core.security.Authenticator
+import com.iriasan.gotbets.features.presentation.bet.BetActivity
 import com.iriasan.gotbets.features.presentation.login.LoginActivity
-import com.iriasan.gotbets.features.presentation.SplashActivity
+import com.iriasan.gotbets.features.presentation.splash.SplashActivity
 import com.iriasan.gotbets.features.presentation.signup.SignupActivity
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -37,6 +38,10 @@ class Navigator
             true -> context.startActivity(MainActivity.callingIntent(context))
             false -> AuthManager().authExpiredAndGoLogin(context)
         }
+    }
+
+    fun showBet(context: Context) {
+        context.startActivity(BetActivity.callingIntent(context))
     }
 
 

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:orientation="vertical"
+                                                   android:background="@color/colorPrimary"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   android:padding="12dp">
+
+    <TextView
+            android:id="@+id/tvCharacterName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="La montaña"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/got_font"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+
+    <TextView
+            android:id="@+id/tvSelectAlive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layer_round_text"
+            android:text="1"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="@id/tvCharacterName"
+            app:layout_constraintBottom_toBottomOf="@id/tvCharacterName"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintEnd_toStartOf="@id/tvSelectWhiteWalker"/>
+
+    <ImageView
+            android:id="@+id/ivSelectorAlive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_bet_red"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/tvSelectAlive"
+            app:layout_constraintBottom_toBottomOf="@id/tvSelectAlive"
+            app:layout_constraintStart_toStartOf="@id/tvSelectAlive"
+            app:layout_constraintEnd_toEndOf="@id/tvSelectAlive"
+    />
+
+
+    <TextView
+            android:id="@+id/tvSelectWhiteWalker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layer_round_text"
+            android:text="X"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="@id/tvSelectAlive"
+            app:layout_constraintBottom_toBottomOf="@id/tvSelectAlive"
+            app:layout_constraintStart_toEndOf="@id/tvSelectAlive"
+            app:layout_constraintEnd_toStartOf="@id/tvSelectDeath"/>
+
+    <ImageView
+            android:id="@+id/ivSelectorWhiteWalker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_bet_red"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/tvSelectWhiteWalker"
+            app:layout_constraintBottom_toBottomOf="@id/tvSelectWhiteWalker"
+            app:layout_constraintStart_toStartOf="@id/tvSelectWhiteWalker"
+            app:layout_constraintEnd_toEndOf="@id/tvSelectWhiteWalker"
+    />
+
+    <TextView
+            android:id="@+id/tvSelectDeath"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layer_round_text"
+            android:text="2"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="@id/tvSelectWhiteWalker"
+            app:layout_constraintBottom_toBottomOf="@id/tvSelectWhiteWalker"
+            app:layout_constraintStart_toEndOf="@id/tvSelectWhiteWalker"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+            android:id="@+id/ivSelectorDeath"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_bet_red"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/tvSelectDeath"
+            app:layout_constraintBottom_toBottomOf="@id/tvSelectDeath"
+            app:layout_constraintStart_toStartOf="@id/tvSelectDeath"
+            app:layout_constraintEnd_toEndOf="@id/tvSelectDeath"
+    />
+
+    <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                android:id="@+id/guideline" app:layout_constraintGuide_begin="134dp"
+                                                android:orientation="vertical"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

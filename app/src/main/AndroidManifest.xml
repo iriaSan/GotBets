@@ -27,11 +27,12 @@
                   android:launchMode="singleInstance"
                   android:screenOrientation="portrait"
         />
-        <activity android:name=".features.presentation.SplashActivity"
+        <activity android:name=".features.presentation.splash.SplashActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:noHistory="true"
                   android:screenOrientation="portrait" />
         <activity android:name=".features.presentation.signup.SignupActivity"/>
+        <activity android:name=".features.presentation.bet.BetActivity"/>
 
 
         <!--<service android:name=".MessagingService">-->
