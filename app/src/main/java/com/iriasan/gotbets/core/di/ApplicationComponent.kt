@@ -8,6 +8,7 @@ import com.iriasan.gotbets.core.navigation.RouteActivity
 import com.iriasan.gotbets.features.presentation.*
 import com.iriasan.gotbets.features.presentation.login.LoginActivity
 import com.iriasan.gotbets.features.presentation.login.LoginFragment
+import com.iriasan.gotbets.features.presentation.signup.SignupFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -22,6 +23,7 @@ interface ApplicationComponent {
     fun inject(splashFragment: SplashFragment)
     fun inject(loginActivity: LoginActivity)
     fun inject(loginFragment: LoginFragment)
+    fun inject(signupFragment: SignupFragment)
     fun inject(mainActivity: MainActivity)
     fun inject(mainFragment: MainFragment)
 }
