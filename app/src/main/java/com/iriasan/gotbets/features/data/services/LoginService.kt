@@ -1,11 +1,14 @@
 package com.iriasan.gotbets.features.data.services
 
+import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.model.Document
 import com.iriasan.gotbets.core.exception.Failure
 import com.iriasan.gotbets.core.functional.Either
 import com.iriasan.gotbets.core.networking.FirebaseUtils
@@ -58,13 +61,15 @@ class LoginService @Inject constructor(){
     }
 
 
-    private fun saveUser(signupModelPost: SignupModelPost?): Boolean {
-        return try {
+    private fun saveUser(signupModelPost: SignupModelPost?) {
+         try {
             val userId = FirebaseUtils().firebaseUid
-            val userRef = userId?.let { db.collection("Users").document(it) }
-            Tasks.await(signupModelPost?.let { userRef?.set(it) }!!) != null
+             db.collection("users").document(userId!!)
+                 .set(signupModelPost!!)
+                 .addOnSuccessListener { Log.d("saveUser", "DocumentSnapshot successfully written!") }
+                 .addOnFailureListener { e -> Log.w("saveUser", "Error writing document", e) }
         } catch (e: Throwable) {
-           false
+
         }
     }
 
