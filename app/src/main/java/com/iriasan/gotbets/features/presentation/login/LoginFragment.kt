@@ -6,9 +6,13 @@ import androidx.annotation.StringRes
 import com.iriasan.gotbets.BaseFragment
 import com.iriasan.gotbets.R
 import com.iriasan.gotbets.core.exception.Failure
+import com.iriasan.gotbets.core.extension.failure
 import com.iriasan.gotbets.core.extension.observe
 import com.iriasan.gotbets.core.extension.viewModel
 import com.iriasan.gotbets.core.navigation.Navigator
+import com.iriasan.gotbets.features.domain.models.LoginModelPost
+import kotlinx.android.synthetic.main.fragment_login.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import javax.inject.Inject
 
 
@@ -29,6 +33,7 @@ class LoginFragment : BaseFragment(){
         appComponent.inject(this)
         loginViewModel = viewModel(viewModelFactory) {
             observe(loginDone, ::renderDone)
+           failure(failure,::handleFailure)
         }
     }
 
@@ -57,22 +62,19 @@ class LoginFragment : BaseFragment(){
     }
 
     private fun setupViews() {
-//        buttonLoginNext.onClick {
-//            hideKeyboard()
-//            showProgress()
-//            //loginViewModel.login(
-//               // LoginModelPost(editTextLoginEmail.text.toString(), editTextLoginPassword.text.toString()))
-//        }
-
+        buttonLoginNext.onClick {
+            hideKeyboard()
+            showProgress()
+            loginViewModel.login(LoginModelPost(editTextLoginEmail.text.toString(), editTextLoginPassword.text.toString())) }
     }
 
 
     override fun showProgress() {
-        // progress_login_fragment.visibility = View.VISIBLE
+        progress_login_fragment.visibility = View.VISIBLE
     }
 
     override fun hideProgress() {
-        //  progress_login_fragment.visibility = View.GONE
+        progress_login_fragment.visibility = View.GONE
     }
 
     companion object {
