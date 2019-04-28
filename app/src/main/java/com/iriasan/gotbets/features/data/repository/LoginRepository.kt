@@ -14,11 +14,11 @@ import retrofit2.Call
 import javax.inject.Inject
 
 interface LoginRepository {
-    fun login(loginModelPost: LoginModelPost?): Either<Failure, Boolean>?
+    fun login(loginModelPost: LoginModelPost?): Either<Failure, Boolean>
 
     class Login
     @Inject constructor(private val networkHandler: NetworkHandler) : LoginRepository {
-        override fun login(loginModelPost: LoginModelPost?): Either<Failure, Boolean>? {
+        override fun login(loginModelPost: LoginModelPost?): Either<Failure, Boolean> {
             return when (networkHandler.isConnected) {
                 true -> request(loginModelPost)
                 false -> Either.Left(Failure.NetworkConnection)
@@ -28,7 +28,7 @@ interface LoginRepository {
         private fun request(loginModelPost: LoginModelPost?): Either<Failure, Boolean> {
             return try {
                 val response = loginModelPost?.email?.let {itEmail->
-                    loginModelPost?.password?.let {itPassword->
+                    loginModelPost.password?.let {itPassword->
                         FirebaseAuth.getInstance()
                             .signInWithEmailAndPassword(itEmail, itPassword)
                     }

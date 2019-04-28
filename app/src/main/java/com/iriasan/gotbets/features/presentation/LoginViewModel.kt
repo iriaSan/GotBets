@@ -6,7 +6,6 @@ import com.iriasan.gotbets.core.extension.isEmailValid
 import com.iriasan.gotbets.core.platform.BaseViewModel
 import com.iriasan.gotbets.features.domain.interactor.LoginInteractor
 import com.iriasan.gotbets.features.domain.models.LoginModelPost
-import com.iriasan.gotbets.features.domain.models.UserModel
 import javax.inject.Inject
 
 
@@ -45,8 +44,8 @@ class LoginViewModel @Inject constructor(private val loginInteractor: LoginInter
     }
 
 
-    private fun handleUser(user: UserModel) {
-        this.loginDone.value = true
+    private fun handleUser(done: Boolean) {
+        this.loginDone.value = done
     }
 
     private fun handleResetPassword(isDone: Boolean) {

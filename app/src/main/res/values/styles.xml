@@ -8,7 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowContentTransitions">true</item>
-        <item name="android:windowActionBar">false</item>
         <!-- New MaterialComponents attributes. -->
         <item name="colorSecondary">?attr/colorPrimary</item>
         <item name="scrimBackground">@color/mtrl_scrim_color</item>
