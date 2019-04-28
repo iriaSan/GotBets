@@ -24,10 +24,7 @@ class Navigator
     private fun showSplash(context: Context) = context.startActivity(SplashActivity.callingIntent(context))
 
     fun showLogin(context: Context) {
-        when (authenticator?.userLoggedIn()) {
-            true -> context.startActivity(LoginActivity.callingIntent(context))
-            false -> AuthManager().authExpiredAndGoLogin(context)
-        }
+        context.startActivity(LoginActivity.callingIntent(context))
     }
 
     fun showMain(context: Context) {

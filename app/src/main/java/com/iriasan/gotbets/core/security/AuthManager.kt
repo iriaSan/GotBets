@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.app.ActivityCompat.finishAffinity
 import com.iriasan.gotbets.core.persistence.SharedPreferencesHelper
+import com.iriasan.gotbets.features.presentation.SplashActivity
 import org.jetbrains.anko.doAsync
 
 class AuthManager {
@@ -12,7 +13,7 @@ class AuthManager {
     fun authExpiredAndGoLogin(context: Context?) {
         doAsync {
             context?.let { SharedPreferencesHelper().clear(it) }
-//            closeActivitiesGoLogin(context)
+  closeActivitiesGoLogin(context)
             // TODO: remove all persistence
         }
     }
@@ -28,10 +29,10 @@ class AuthManager {
         System.exit(0)
     }
 //
-//    private fun closeActivitiesGoLogin(context: Context?) {
-//        val intent = Intent(context, SplashActivity::class.java)
-//        val cn = intent.component
-//        val mainIntent = Intent.makeRestartActivityTask(cn)
-//        context?.startActivity(mainIntent)
-//    }
+    private fun closeActivitiesGoLogin(context: Context?) {
+        val intent = Intent(context, SplashActivity::class.java)
+        val cn = intent.component
+        val mainIntent = Intent.makeRestartActivityTask(cn)
+        context?.startActivity(mainIntent)
+    }
 }
