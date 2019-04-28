@@ -1,5 +1,6 @@
 package com.iriasan.gotbets.core.security
 
+import com.google.firebase.auth.FirebaseAuth
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -8,6 +9,8 @@ class Authenticator
 @Inject constructor() {
     fun userLoggedIn(): Boolean {
         //here logic to check user logged
-        return false
+        FirebaseAuth.getInstance().currentUser.let { itUser ->
+            return itUser?.uid != null
+        }
     }
 }

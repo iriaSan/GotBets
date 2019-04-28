@@ -7,6 +7,7 @@ import com.iriasan.gotbets.core.security.AuthManager
 import com.iriasan.gotbets.core.security.Authenticator
 import com.iriasan.gotbets.features.presentation.login.LoginActivity
 import com.iriasan.gotbets.features.presentation.SplashActivity
+import com.iriasan.gotbets.features.presentation.signup.SignupActivity
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -25,6 +26,10 @@ class Navigator
 
     fun showLogin(context: Context) {
         context.startActivity(LoginActivity.callingIntent(context))
+    }
+
+    fun showSignup(context: Context) {
+        context.startActivity(SignupActivity.callingIntent(context))
     }
 
     fun showMain(context: Context) {
