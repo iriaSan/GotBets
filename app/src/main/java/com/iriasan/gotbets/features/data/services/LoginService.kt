@@ -10,6 +10,7 @@ import com.iriasan.gotbets.core.exception.Failure
 import com.iriasan.gotbets.core.functional.Either
 import com.iriasan.gotbets.core.networking.FirebaseUtils
 import com.iriasan.gotbets.features.domain.models.LoginModelPost
+import com.iriasan.gotbets.features.domain.models.SignupModelPost
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -37,17 +38,17 @@ class LoginService @Inject constructor(){
         }
     }
 
-    fun signUp(loginModelPost: LoginModelPost?): Either<Failure, Boolean> {
+    fun signUp(signupModelPost: SignupModelPost?): Either<Failure, Boolean> {
         return try {
-            val task: Task<AuthResult> = loginModelPost?.email?.let { itEmail ->
-                loginModelPost.password?.let { itPassword ->
+            val task: Task<AuthResult> = signupModelPost?.email?.let { itEmail ->
+                signupModelPost.password?.let { itPassword ->
                     auth.createUserWithEmailAndPassword(itEmail, itPassword)
                 }
             }!!
 
             Tasks.await(task).let {
                 when {
-                    it != null -> {saveUser(loginModelPost); Either.Right(true)}
+                    it != null -> {saveUser(signupModelPost); Either.Right(true)}
                     else -> Either.Right(false)
                 }
             }
@@ -57,11 +58,11 @@ class LoginService @Inject constructor(){
     }
 
 
-    private fun saveUser(loginModelPost: LoginModelPost?): Boolean {
+    private fun saveUser(signupModelPost: SignupModelPost?): Boolean {
         return try {
             val userId = FirebaseUtils().firebaseUid
             val userRef = userId?.let { db.collection("Users").document(it) }
-            Tasks.await(loginModelPost?.let { userRef?.set(it) }!!) != null
+            Tasks.await(signupModelPost?.let { userRef?.set(it) }!!) != null
         } catch (e: Throwable) {
            false
         }

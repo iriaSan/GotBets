@@ -62,10 +62,15 @@ class LoginFragment : BaseFragment(){
     }
 
     private fun setupViews() {
-        buttonLoginNext.onClick {
+        buttonLogin.onClick {
             hideKeyboard()
             showProgress()
-            loginViewModel.login(LoginModelPost(editTextLoginEmail.text.toString(), editTextLoginPassword.text.toString())) }
+            loginViewModel.login(LoginModelPost(etEmailLogin.text.toString(), etPasswordLogin.text.toString()))
+        }
+
+        btnSignUpLogin.onClick {
+            navigator.showSignup(requireContext())
+        }
     }
 
 

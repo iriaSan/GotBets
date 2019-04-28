@@ -31,8 +31,7 @@
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:noHistory="true"
                   android:screenOrientation="portrait" />
-
-
+        <activity android:name=".features.presentation.signup.SignupActivity"/>
 
 
         <!--<service android:name=".MessagingService">-->

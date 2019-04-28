@@ -2,8 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                      xmlns:app="http://schemas.android.com/apk/res-auto"
                                                      android:layout_width="match_parent"
-                                                     android:layout_height="match_parent"
-                                                     android:focusableInTouchMode="true">
+                                                     android:layout_height="match_parent">
 
     <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -12,31 +11,33 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+        >
 
             <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewSignup"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="8dp"
                     app:cardElevation="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.23000002">
+                    app:layout_constraintVertical_bias="0.26">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/colorPrimary"
-            >
+                        android:background="@color/colorPrimary">
+
 
 
                     <TextView
-                            android:id="@+id/tv_label_login"
+                            android:id="@+id/tv_label_signup"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
@@ -44,28 +45,28 @@
                             android:layout_marginEnd="16dp"
                             android:fontFamily="@font/got_font"
                             android:gravity="center"
-                            android:text="Iniciar sesion"
+                            android:text="@string/signup"
                             android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/font_normal"
-                            app:layout_constraintBottom_toTopOf="@id/tilEmailLogin"
+                            android:textSize="@dimen/font_larger"
+                            app:layout_constraintBottom_toTopOf="@id/til_email"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"/>
 
                     <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/tilEmailLogin"
+                            android:id="@+id/til_email"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
+                            android:layout_marginTop="24dp"
                             android:hint="Email"
                             android:background="@drawable/layer_round_text"
-                            app:layout_constraintBottom_toTopOf="@id/tilPasswordLogin"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_label_login"
-                            app:layout_constraintStart_toStartOf="@+id/tv_label_login"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_label_login">
+                            app:layout_constraintBottom_toTopOf="@id/til_phone"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_label_signup"
+                            app:layout_constraintStart_toStartOf="@+id/tv_label_signup"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_label_signup">
 
                         <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/etEmailLogin"
+                                android:id="@+id/etEmailSignup"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
@@ -75,23 +76,70 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/tilPasswordLogin"
+                            android:id="@+id/til_phone"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:hint="Contraseña"
+                            android:layout_marginTop="12dp"
+                            android:hint="Teléfono"
                             android:background="@drawable/layer_round_text"
-                            app:layout_constraintBottom_toTopOf="@id/buttonLogin"
-                            app:layout_constraintEnd_toEndOf="@+id/tilEmailLogin"
-                            app:layout_constraintStart_toStartOf="@+id/tilEmailLogin"
-                            app:layout_constraintTop_toBottomOf="@+id/tilEmailLogin"
+                            app:layout_constraintBottom_toTopOf="@id/til_name"
+                            app:layout_constraintEnd_toEndOf="@+id/til_email"
+                            app:layout_constraintStart_toStartOf="@+id/til_email"
+                            app:layout_constraintTop_toBottomOf="@+id/til_email">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPhoneSignup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="phone"
+                                android:textSize="@dimen/font_normal"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:hint="Nombre"
+                            android:background="@drawable/layer_round_text"
+                            app:layout_constraintBottom_toTopOf="@id/til_password"
+                            app:layout_constraintEnd_toEndOf="@+id/til_phone"
+                            app:layout_constraintStart_toStartOf="@+id/til_phone"
+                            app:layout_constraintTop_toBottomOf="@+id/til_phone"
                             app:passwordToggleEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/etPasswordLogin"
+                                android:id="@+id/etNameSignup"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
+                                android:imeOptions="actionNext"
+                                android:inputType="textPersonName"
+                                android:textSize="@dimen/font_normal"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_password"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/layer_round_text"
+                            app:layout_constraintBottom_toTopOf="@id/buttonSignUp"
+                            app:layout_constraintEnd_toEndOf="@+id/til_name"
+                            app:layout_constraintStart_toStartOf="@+id/til_name"
+                            app:layout_constraintTop_toBottomOf="@+id/til_name"
+                            app:passwordToggleEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPasswordSignup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="Contraseña"
                                 android:imeOptions="actionDone"
                                 android:inputType="textPassword"
                                 android:textSize="@dimen/font_normal"/>
@@ -99,53 +147,24 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Button
-                            android:id="@+id/buttonLogin"
+                            android:id="@+id/buttonSignUp"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="24sp"
                             android:background="@drawable/layer_round_button"
                             android:fontFamily="@font/got_font"
-                            android:text="Entrar"
+                            android:text="Crear"
                             android:textAllCaps="false"
                             android:textColor="@color/colorPrimary"
                             android:textSize="@dimen/font_large"
-                            app:layout_constraintBottom_toTopOf="@id/tvForgotPassword"
-                            app:layout_constraintEnd_toEndOf="@+id/tilPasswordLogin"
-                            app:layout_constraintStart_toStartOf="@+id/tilPasswordLogin"
-                            app:layout_constraintTop_toBottomOf="@+id/tilPasswordLogin"/>
-
-                    <TextView
-                            android:id="@+id/tvForgotPassword"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:gravity="end"
-                            android:text="¿Has olvidado la contraseña?"
-                            android:textSize="@dimen/font_small"
-                            android:textColor="@color/colorWhite"
-                            app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
-                            app:layout_constraintStart_toStartOf="@+id/buttonLogin"
-                            app:layout_constraintTop_toBottomOf="@+id/buttonLogin"/>
-
-                    <TextView
-                            android:id="@+id/btnSignUpLogin"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="46dp"
-                            android:layout_marginTop="24dp"
-                            android:layout_marginBottom="24dp"
-                            android:gravity="end"
-                            android:text="@string/have_an_account_signup"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/font_small"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@id/tvForgotPassword"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toStartOf="@+id/buttonLogin"
-                            app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword"/>
+                            app:layout_constraintEnd_toEndOf="@+id/til_password"
+                            app:layout_constraintStart_toStartOf="@+id/til_password"
+                            app:layout_constraintTop_toBottomOf="@+id/til_password"/>
 
                     <ProgressBar
-                            android:id="@+id/progress_login_fragment"
+                            android:id="@+id/progress_signup_fragment"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:visibility="gone"
@@ -154,6 +173,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.3"/>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
@@ -163,4 +183,3 @@
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
