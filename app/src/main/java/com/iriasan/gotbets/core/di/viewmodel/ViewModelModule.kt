@@ -2,7 +2,7 @@ package com.iriasan.gotbets.core.di.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.iriasan.gotbets.features.presentation.LoginViewModel
+import com.iriasan.gotbets.features.presentation.login.LoginViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

@@ -5,7 +5,7 @@ import android.view.View
 import com.iriasan.gotbets.features.presentation.MainActivity
 import com.iriasan.gotbets.core.security.AuthManager
 import com.iriasan.gotbets.core.security.Authenticator
-import com.iriasan.gotbets.features.presentation.LoginActivity
+import com.iriasan.gotbets.features.presentation.login.LoginActivity
 import com.iriasan.gotbets.features.presentation.SplashActivity
 import javax.inject.Inject
 import javax.inject.Singleton

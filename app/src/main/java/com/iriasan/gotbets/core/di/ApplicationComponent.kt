@@ -6,6 +6,8 @@ import com.iriasan.gotbets.BaseFragment
 import com.iriasan.gotbets.core.di.viewmodel.ViewModelModule
 import com.iriasan.gotbets.core.navigation.RouteActivity
 import com.iriasan.gotbets.features.presentation.*
+import com.iriasan.gotbets.features.presentation.login.LoginActivity
+import com.iriasan.gotbets.features.presentation.login.LoginFragment
 import dagger.Component
 import javax.inject.Singleton
 

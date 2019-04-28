@@ -1,4 +1,4 @@
-package com.iriasan.gotbets.features.presentation
+package com.iriasan.gotbets.features.presentation.login
 
 import android.os.Bundle
 import android.view.View
