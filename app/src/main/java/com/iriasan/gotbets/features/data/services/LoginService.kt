@@ -1,16 +1,73 @@
 package com.iriasan.gotbets.features.data.services
 
-import com.iriasan.gotbets.features.data.api.LoginApi
-import com.iriasan.gotbets.core.networking.RetrofitBuilder
+import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.iriasan.gotbets.core.exception.Failure
+import com.iriasan.gotbets.core.functional.Either
+import com.iriasan.gotbets.core.networking.FirebaseUtils
 import com.iriasan.gotbets.features.domain.models.LoginModelPost
-import com.iriasan.gotbets.features.domain.models.UserModel
-import retrofit2.Call
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LoginService
-@Inject constructor(retrofitBuilder: RetrofitBuilder) : LoginApi {
-    private val loginApi by lazy { retrofitBuilder.retrofit().create(LoginApi::class.java) }
-    override fun login(loginModelPost: LoginModelPost?): Call<UserModel>? = loginApi.login(loginModelPost)
+class LoginService @Inject constructor(){
+    private val auth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
+
+    fun saveLogin(loginModelPost: LoginModelPost?): Either<Failure, Boolean> {
+        return try {
+            val task: Task<AuthResult> = loginModelPost?.email?.let { itEmail ->
+                loginModelPost.password?.let { itPassword ->
+                    auth.signInWithEmailAndPassword(itEmail, itPassword)
+                }
+            }!!
+
+            Tasks.await(task).let {
+                when {
+                    it.user != null -> Either.Right(true)
+                    else -> Either.Right(false)
+                }
+            }
+        } catch (e: Throwable) {
+            Either.Right(false)
+        }
+    }
+
+    fun signUp(loginModelPost: LoginModelPost?): Either<Failure, Boolean> {
+        return try {
+            val task: Task<AuthResult> = loginModelPost?.email?.let { itEmail ->
+                loginModelPost.password?.let { itPassword ->
+                    auth.createUserWithEmailAndPassword(itEmail, itPassword)
+                }
+            }!!
+
+            Tasks.await(task).let {
+                when {
+                    it != null -> {saveUser(loginModelPost); Either.Right(true)}
+                    else -> Either.Right(false)
+                }
+            }
+        } catch (e: Throwable) {
+            Either.Right(false)
+        }
+    }
+
+
+    private fun saveUser(loginModelPost: LoginModelPost?): Boolean {
+        return try {
+            val userId = FirebaseUtils().firebaseUid
+            val userRef = userId?.let { db.collection("Users").document(it) }
+            Tasks.await(loginModelPost?.let { userRef?.set(it) }!!) != null
+        } catch (e: Throwable) {
+           false
+        }
+    }
+
+
+
+
 }
